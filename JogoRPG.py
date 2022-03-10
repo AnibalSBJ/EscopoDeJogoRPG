@@ -7,10 +7,13 @@ from ogro import ogro
 from MonstroPlanta import MonstroPlanta
 from heroi import heroi
 import os
+import time
 
 opcao = 0
 
-print('''
+os.system('clear')
+
+string = '''
 Bem-vindo aventureiro!, 
 escolha seu herói para lhe 
 representar em suas batalhas
@@ -21,7 +24,11 @@ Escolha a classe do seu herói:
 [2]mago
 [3]arqueiro
 
-''')
+'''
+for ch in string:
+    time.sleep(0.05)
+    print(ch, end='', flush=True)
+
 raca = NULL
 classe = NULL
 hero = heroi(raca,classe)
@@ -37,9 +44,13 @@ elif opcao == 3:
 
 os.system('clear')
 
-print(f"\n você escolheu a classe {hero.classe}")
+string = f"\n você escolheu a classe {hero.classe}"
 
-print('''
+for ch in string:
+    time.sleep(0.05)
+    print(ch, end='', flush=True)
+
+string = '''
 Escolha agora qual a raça
 de seu herói dentre as opções a seguir:
 
@@ -48,7 +59,11 @@ de seu herói dentre as opções a seguir:
 [3]anão
 [4]druida
 
-''')
+'''
+for ch in string:
+    time.sleep(0.05)
+    print(ch, end='', flush=True)
+
 
 opcao_raca = int(input())
 
@@ -64,3 +79,7 @@ elif opcao_raca == 4:
     hero.raca = "druida"
 
 print(f"\n você escolheu a classe {hero.classe} de raça {hero.raca},\n vamos iniciar sua aventura!")
+
+time.sleep(3)
+
+print("Sua aventura começa entrando na floresta maldita aos arredores de midgard")
