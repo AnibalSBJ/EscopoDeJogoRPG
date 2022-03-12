@@ -1,3 +1,4 @@
+import random
 class drag:
     def __init__(self,tamanho,cor,raridade,tipo,forca,level):
         self.tamanho = tamanho
@@ -8,7 +9,8 @@ class drag:
         self.level = level
     
     def ataque(self):
-        dano = random.randrange(1,20)*self.forca*0,5
+        dano = random.random()*self.forca
+        return dano
 
 
 

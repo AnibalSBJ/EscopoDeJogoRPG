@@ -1,3 +1,4 @@
+import random
 class ogro:
     def __init__(self,tamanho,cor,raridade,tipo,forca,level):
         self.tamanho = tamanho
@@ -6,3 +7,7 @@ class ogro:
         self.tipo = tipo
         self.forca = forca
         self.level = level
+
+    def ataque(self):
+        dano = random.random()*self.forca
+        return dano

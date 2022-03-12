@@ -31,7 +31,7 @@ for ch in string:
 
 raca = NULL
 classe = NULL
-hero = heroi(raca,classe)
+hero = heroi(raca,classe,1,1)
 opcao = int(input())
 
 if opcao == 1:
@@ -57,7 +57,7 @@ de seu herói dentre as opções a seguir:
 [1]humano
 [2]elfo
 [3]anão
-[4]druida
+[4]orc
 
 '''
 for ch in string:
@@ -76,10 +76,66 @@ elif opcao_raca == 2:
 elif opcao_raca == 3:
     hero.raca = "anão"
 elif opcao_raca == 4:
-    hero.raca = "druida"
+    hero.raca = "orc"
 
-print(f"\n você escolheu a classe {hero.classe} de raça {hero.raca},\n vamos iniciar sua aventura!")
+string = f"\n você escolheu a classe {hero.classe} de raça {hero.raca},\n vamos iniciar sua aventura!"
+
+for ch in string:
+    time.sleep(0.05)
+    print(ch, end='', flush=True)
 
 time.sleep(3)
 
-print("Sua aventura começa entrando na floresta maldita aos arredores de midgard")
+os.system('clear')
+
+string = '''
+Sua aventura começa entrando na floresta maldita aos arredores de midgard,
+sua terra foi devastada por monstros do submundo com afinidades elementais,
+diversos monstros de elementos diferentes estão zaralhando a porra toda, e tu
+é o escolhido pra limpar a merda toda.
+'''
+
+for ch in string:
+    time.sleep(0.05)
+    print(ch, end='', flush=True)
+
+time.sleep(2)
+
+os.system('clear')
+
+string = '''
+Andando tranquilamente pela floresta você encontra um monstro planta!,
+ele tem uma aparência meio fraca e você com certeza pode derrotá-lo
+
+o que você decide fazer?
+
+[1]batalhar com ele
+[2]ignorá-lo
+'''
+
+for ch in string:
+    time.sleep(0.05)
+    print(ch, end='', flush=True)
+
+opcao_batalha = int(input())
+
+monstroPlanta1 = MonstroPlanta("pequeno","verde","comum","elemental de planta","1","5")
+
+
+
+if opcao_batalha == 1:
+    dano = hero.ataque()
+    vida2 = dano - float(monstroPlanta1.vida)
+    string = f'''
+    você decidiu atacar o monstro planta!
+    e causou um total de {dano} de dano'''
+
+    for ch in string:
+        time.sleep(0.05)
+        print(ch, end='', flush=True)
+
+    if vida2 <= 0:
+        print("você matou o monstro planta!")
+    else:
+        print(f"a vida atual do monstor planda é {vida2}")
+
