@@ -8,6 +8,7 @@ from MonstroPlanta import MonstroPlanta
 from heroi import heroi
 import os
 import time
+import funcoes
 
 opcao = 0
 
@@ -31,7 +32,7 @@ for ch in string:
 
 raca = NULL
 classe = NULL
-hero = heroi(raca,classe,1,1)
+hero = heroi(raca,classe,1,20,200)
 opcao = int(input())
 
 if opcao == 1:
@@ -103,39 +104,50 @@ time.sleep(2)
 
 os.system('clear')
 
+matou_monstro = False
+
 string = '''
 Andando tranquilamente pela floresta você encontra um monstro planta!,
-ele tem uma aparência meio fraca e você com certeza pode derrotá-lo
-
-o que você decide fazer?
-
-[1]batalhar com ele
-[2]ignorá-lo
-'''
+ele tem uma aparência meio fraca e você com certeza pode derrotá-lo'''
 
 for ch in string:
     time.sleep(0.05)
     print(ch, end='', flush=True)
 
-opcao_batalha = int(input())
+while matou_monstro == False:
 
-monstroPlanta1 = MonstroPlanta("pequeno","verde","comum","elemental de planta","1","5")
+    string = '''
+    o que você decide fazer?
 
-
-
-if opcao_batalha == 1:
-    dano = hero.ataque()
-    vida2 = dano - float(monstroPlanta1.vida)
-    string = f'''
-    você decidiu atacar o monstro planta!
-    e causou um total de {dano} de dano'''
+    [1]batalhar com ele
+    [2]ignorá-lo
+    '''
 
     for ch in string:
         time.sleep(0.05)
         print(ch, end='', flush=True)
 
-    if vida2 <= 0:
-        print("você matou o monstro planta!")
-    else:
-        print(f"a vida atual do monstor planda é {vida2}")
+    opcao_batalha = int(input())
+
+    monstroPlanta1 = MonstroPlanta("pequeno","verde","comum","elemental de planta","1","5")
+
+
+
+    if opcao_batalha == 1:
+        dano = funcoes.ataque(hero.forca)
+        vida2 = float(monstroPlanta1.vida) - dano
+        string = f'''
+        você decidiu atacar o monstro planta!
+        e causou um total de {dano} de dano'''
+
+        for ch in string:
+            time.sleep(0.05)
+            print(ch, end='', flush=True)
+
+        if vida2 <= 0:
+            print("você matou o monstro planta!")
+            hero.level = hero.level+1
+            matou_monstro = True
+        else:
+            print(f"\n a vida atual do monstor planda é {vida2}")
 
