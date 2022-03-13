@@ -2,19 +2,21 @@ from asyncio.windows_events import NULL
 import random
 from turtle import clear
 from drag import drag
-from MiniMonstroPlanta import MiniMonstroPlanta
+from itens import itens
 from ogro import ogro
 from MonstroPlanta import MonstroPlanta
 from heroi import heroi
 import os
 import time
 import funcoes
+import math
 
 opcao = 0
 
 os.system('clear')
 
 string = '''
+
 Bem-vindo aventureiro!, 
 escolha seu herói para lhe 
 representar em suas batalhas
@@ -27,12 +29,17 @@ Escolha a classe do seu herói:
 
 '''
 for ch in string:
-    time.sleep(0.05)
+    time.sleep(0.03)
     print(ch, end='', flush=True)
 
 raca = NULL
 classe = NULL
+potion = 0
+weapon = "nenhuma"
+vest = "nenhuma"
 hero = heroi(raca,classe,1,20,200)
+inventario = itens(potion,weapon,vest)
+
 opcao = int(input())
 
 if opcao == 1:
@@ -48,7 +55,7 @@ os.system('clear')
 string = f"\n você escolheu a classe {hero.classe}"
 
 for ch in string:
-    time.sleep(0.05)
+    time.sleep(0.03)
     print(ch, end='', flush=True)
 
 string = '''
@@ -62,7 +69,7 @@ de seu herói dentre as opções a seguir:
 
 '''
 for ch in string:
-    time.sleep(0.05)
+    time.sleep(0.03)
     print(ch, end='', flush=True)
 
 
@@ -82,7 +89,7 @@ elif opcao_raca == 4:
 string = f"\n você escolheu a classe {hero.classe} de raça {hero.raca},\n vamos iniciar sua aventura!"
 
 for ch in string:
-    time.sleep(0.05)
+    time.sleep(0.03)
     print(ch, end='', flush=True)
 
 time.sleep(3)
@@ -97,7 +104,7 @@ diversos monstros de elementos diferentes estão zaralhando a porra toda, e tu
 '''
 
 for ch in string:
-    time.sleep(0.05)
+    time.sleep(0.03)
     print(ch, end='', flush=True)
 
 time.sleep(2)
@@ -107,29 +114,34 @@ os.system('clear')
 matou_monstro = False
 
 string = '''
+
 Andando tranquilamente pela floresta você encontra um monstro planta!,
-ele tem uma aparência meio fraca e você com certeza pode derrotá-lo'''
+ele tem uma aparência meio fraca e você com certeza pode derrotá-lo
+
+'''
 
 for ch in string:
-    time.sleep(0.05)
+    time.sleep(0.03)
     print(ch, end='', flush=True)
 
 while matou_monstro == False:
 
     string = '''
+
     o que você decide fazer?
 
     [1]batalhar com ele
     [2]ignorá-lo
+
     '''
 
     for ch in string:
-        time.sleep(0.05)
+        time.sleep(0.03)
         print(ch, end='', flush=True)
 
     opcao_batalha = int(input())
 
-    monstroPlanta1 = MonstroPlanta("pequeno","verde","comum","elemental de planta","1","5")
+    monstroPlanta1 = MonstroPlanta("pequeno","verde","comum","elemental de planta","1","5",5)
 
 
 
@@ -137,11 +149,14 @@ while matou_monstro == False:
         dano = funcoes.ataque(hero.forca)
         vida2 = float(monstroPlanta1.vida) - dano
         string = f'''
+
         você decidiu atacar o monstro planta!
-        e causou um total de {dano} de dano'''
+        e causou um total de {dano} de dano
+        
+        '''
 
         for ch in string:
-            time.sleep(0.05)
+            time.sleep(0.03)
             print(ch, end='', flush=True)
 
         if vida2 <= 0:
@@ -149,7 +164,7 @@ while matou_monstro == False:
             hero.level = hero.level+1
             matou_monstro = True
         else:
-            print(f"\n a vida atual do monstor planda é {vida2}")
+            print(f"\n a vida atual do monstor planda é {math.floor(vida2)}")
 
     elif opcao_batalha == 2:
         fuga = funcoes.fuga()
@@ -159,6 +174,77 @@ while matou_monstro == False:
         else:
             print("você tropeçou e não conseguiu fugir!")
             time.sleep(1)
+            hero.vida = math.floor(hero.vida - funcoes.ataque(monstroPlanta1.forca))
+    
+print('''
+
+continuando sua viagem aventureiro, gostaria de saber seus status?
+
+[1]sim
+[2]não
+
+''')
+
+opcao = int(input())
+
+if opcao == 1:
+    print(f'''
+    seu herói possui:
+    {hero.forca} de força
+    {hero.level} de level
+    {hero.vida} de vida
+
+    seu inventário possui:
+    {potion} poções
+    {weapon} arma
+    {vest} vestimenta
+
+    atualmente
+    ''')
+
+time.sleep(5)
+
+os.system('clear')
+
+string = '''
+Dando continuação à sua aventura, você encontra um baú em seu caminho, deseja abrí-lo ?
+
+[1]sim
+[2]não
+
+'''
+
+for ch in string:
+    time.sleep(0.03)
+    print(ch, end='', flush=True)
+
+opcao = int(input())
+
+if opcao == 1:
+    chance = random.random()*10
+    if chance < 3:
+        print("você encontrou uma poção!")
+        potion = 1
+    elif chance >= 3 and chance <=6 and hero.classe == "guerreiro":
+        print("você encontrou um machado grande!")
+        hero.forca = hero.forca + 5
+    elif chance >= 3 and chance <=6 and hero.classe == "arqueiro":
+        print("você encontrou um arco grande!")
+        hero.forca = hero.forca + 5
+    elif chance >= 3 and chance <=6 and hero.classe == "mago":
+        print("você encontrou um cetro grande!")
+        hero.forca = hero.forca + 5
+    elif chance > 6:
+        print("você encontrou uma couraça demoniaca")
+        hero.vida = hero.vida + 50
+
+time.sleep(3)
+
+string = '''
+
+'''
+    
+
 
 
 
