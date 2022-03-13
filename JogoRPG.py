@@ -145,9 +145,21 @@ while matou_monstro == False:
             print(ch, end='', flush=True)
 
         if vida2 <= 0:
-            print("você matou o monstro planta!")
+            print("\n você matou o monstro planta!")
             hero.level = hero.level+1
             matou_monstro = True
         else:
             print(f"\n a vida atual do monstor planda é {vida2}")
+
+    elif opcao_batalha == 2:
+        fuga = funcoes.fuga()
+        if fuga == True:
+            print("você meteu o pé")
+            matou_monstro = True
+        else:
+            print("você tropeçou e não conseguiu fugir!")
+            time.sleep(1)
+
+
+
 
