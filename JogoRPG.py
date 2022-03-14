@@ -194,11 +194,6 @@ if opcao == 1:
     {hero.level} de level
     {hero.vida} de vida
 
-    seu inventário possui:
-    {potion} poções
-    {weapon} arma
-    {vest} vestimenta
-
     atualmente
     ''')
 
@@ -223,24 +218,41 @@ opcao = int(input())
 if opcao == 1:
     chance = random.random()*10
     if chance < 3:
-        print("você encontrou uma poção!")
-        potion = 1
+        chance_pocao = random.random()*10
+        print("você encontrou uma poção!, ela lhe garantiu um aumento aleatório em algum status")
+        if chance_pocao < 5:
+            hero.forca = hero.forca + 5
+        elif chance_pocao >= 5:
+            hero.vida = hero.vida + 5
     elif chance >= 3 and chance <=6 and hero.classe == "guerreiro":
-        print("você encontrou um machado grande!")
+        print("você encontrou um machado grande!, que lhe garantiu um aumento significativo de poder")
         hero.forca = hero.forca + 5
     elif chance >= 3 and chance <=6 and hero.classe == "arqueiro":
-        print("você encontrou um arco grande!")
+        print("você encontrou um arco grande!, que lhe garantiu um aumento significativo de poder")
         hero.forca = hero.forca + 5
     elif chance >= 3 and chance <=6 and hero.classe == "mago":
-        print("você encontrou um cetro grande!")
+        print("você encontrou um cetro grande!, que lhe garantiu um aumento significativo de poder")
         hero.forca = hero.forca + 5
     elif chance > 6:
-        print("você encontrou uma couraça demoniaca")
+        print("você encontrou uma couraça demoniaca, que lhe garantiu um aumento significativo de vida")
         hero.vida = hero.vida + 50
+
+time.sleep(2)
+
+print(f'''
+    Agora seu herói possui:
+    {hero.forca} de força
+    {hero.level} de level
+    {hero.vida} de vida
+
+    atualmente
+    ''')
 
 time.sleep(3)
 
 string = '''
+
+Dando continuação à sua jornada
 
 '''
     
