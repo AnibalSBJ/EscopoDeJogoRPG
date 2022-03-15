@@ -353,6 +353,7 @@ aumentando todos os seus status em 50%, e também dobrando seu level!
         string = f'''
 
 Seus status agora são:
+
 {hero.forca} de forca
 {hero.level} de level
 {hero.vida} de vida
@@ -363,7 +364,17 @@ Seus status agora são:
     
 
     elif opcao2 == 2:
+
         string = '''
+
+Você decide ignorar os gnomos e seguir viagem.
+
+'''
+        funcoes.digitar_historia(string)
+
+elif opcao == 2:
+
+    string = '''
 
 Sentindo-se culpado por ver o pobre garoto pobre morrendo e nao fazer absolutamente nada,
 você segue sua jornada com essa contradição de herói martelando sua cabeça, caminhando próximo
@@ -377,7 +388,68 @@ proposta você se sente um pouco receioso, o que decide fazer ?
 [1]Decide deixá-la ajudalo
 [2]Não confiar na suposta sereia
 
+    '''
+    opcao2 = int(input())
+
+    if opcao2 == 1:
+
+        string = '''
+
+Você decide deixar a sereia ajudá-lo, ela demonstra gratidão pelo voto de confiança, com isso
+ela clareia sua mente avisando-o sobre o possível futuro caso você ajudasse o garoto, o qual 
+você receberia um ataque furtivo e teria seus pertences roubados, além disso ela lhe concede 
+a bênção dos mares, aumentando sua força e sabedoria em 100%, e ela decide lhe seguir sempre 
+que estiveres próximo a um rio ou ao mar lhe concedendo sua vida em adição à sua jornada.
+
         '''
+        
+        funcoes.digitar_historia(string)
+
+
+        hero.forca = round(hero.forca*2)
+        hero.level = round(hero.level*2)
+        hero.vida = round(hero.vida*2)
+
+        string = f'''
+        
+Seus status agora são:
+
+{hero.forca} de forca
+{hero.level} de level
+{hero.vida} de vida
+
+        '''
+
+        funcoes.digitar_historia(string)
+
+    elif opcao2 == 2:
+
+        string = '''
+"você decidiu ignorar a sereia,sentindo-se ofendida por sua escolha ela lança uma maldição
+em você, diminuindo sua vida parcialmente.
+        
+        '''
+
+        funcoes.digitar_historia(string)
+
+        hero.vida = round(hero.vida - hero.vida/4)
+
+        string = f'''
+        
+Seus status agora são:
+
+{hero.forca} de forca
+{hero.level} de level
+{hero.vida} de vida
+
+        '''
+
+        funcoes.digitar_historia(string)
+
+
+
+
+
 
 
 
