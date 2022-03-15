@@ -92,8 +92,10 @@ os.system('clear')
 string = '''
 Sua aventura começa entrando na floresta maldita aos arredores de midgard,
 sua terra foi devastada por monstros do submundo com afinidades elementais,
-diversos monstros de elementos diferentes estão zaralhando a porra toda, e tu
-é o escolhido pra limpar a merda toda.
+diversos monstros de elementos diferentes estão causando destruição na Terra,
+e você é o herói escolhido para derrotar o Dragão de fogo demoníaco, pois ele 
+comanda a horda de monstros, se você derrotá-lo aventureiro, você irá salvar
+a Terra e receber glória eterna.
 '''
 
 funcoes.digitar_historia(string)
@@ -164,7 +166,10 @@ e causou um total de {round(dano)} de dano
         else:
             print("você tropeçou e não conseguiu fugir!")
             time.sleep(1)
-            hero.vida = round(hero.vida - funcoes.ataque(monstroPlanta1.forca))
+            ataque = round(funcoes.ataque(monstroPlanta1.forca))
+            hero.vida = hero.vida -  ataque
+            string = f"o monstro planta lança um ataque em você causando {ataque} de dano!\n e sua vida atual agora é {hero.vida}"
+            funcoes.digitar_historia(string)
             
     
 string = '''
@@ -284,7 +289,7 @@ Não confie em garotinhos pobres!
     if inventario.vestimenta != "nenhuma":
         inventario.vestimenta = "nenhuma"
         hero.vida = hero.vida - 50
-    print(f'''
+    string = f'''
 
 Agora seu herói possui:
 {hero.forca} de força
@@ -292,13 +297,89 @@ Agora seu herói possui:
 {hero.vida} de vida
 
 atualmente
-    ''')
+    '''
+    funcoes.digitar_historia(string)
+
 elif opcao == 2:
-    print('''
+    string = '''
     
-Você ignorou o garotinho famindo e triste, provavelmente ele morrerá
+Você ignorou o garotinho famindo e triste, provavelmente ele morrerá,
+mas acho que isso não importa muito pra você nobre aventureiro!
     
-    ''')
+    '''
+    funcoes.digitar_historia(string)
+
+if opcao == 1:
+
+    string = '''
+
+Após sua frustração com o garotinho pobre e perdendo suas esperanças nas pessoas, você
+continua sua jornada, ao sentar-se em uma raíz de arvore bem espessa você avista criaturinhas 
+andando em sua frente, são gnomos plantadores e eles percebem sua tristeza e se aproximam de você
+perguntando-lhe o que está acontecendo, o que você faz ? 
+
+[1]Conversa com os pequeninos
+[2]Ignora achando q a facada está te fazendo ter alucinações
+
+    '''
+
+    opcao2 = int(input())
+
+    if opcao2 == 1:
+
+        string = '''
+
+Dando um voto de confiança aos pequeninos você conta sobre sua jornada, sobre derrotar matar
+o lendário Dragão de fogo demoníaco e também sobre sua frustração recente ao tentar ajudar um
+pequenino cabisbaixo.
+
+        '''
+
+        funcoes.digitar_historia(string)
+
+        string = '''
+Por dar seu voto de confiança, e também pelos gnomos acharem que você é maluco por estar em
+uma jornada tão perigosa e inconsequente, os pequeninos lhe concedem a bênção da floresta
+aumentando todos os seus status em 50%, e também dobrando seu level!
+
+        '''
+        
+        funcoes.digitar_historia(string)
+
+        hero.vida = round(hero.vida + hero.vida/2)
+        hero.forca = round(hero.forca + hero.forca/2)
+        hero.level = round(hero.level*2)
+
+        string = f'''
+
+Seus status agora são:
+{hero.forca} de forca
+{hero.level} de level
+{hero.vida} de vida
+
+        '''
+
+        funcoes.digitar_historia(string)
+    
+
+    elif opcao2 == 2:
+        string = '''
+
+Sentindo-se culpado por ver o pobre garoto pobre morrendo e nao fazer absolutamente nada,
+você segue sua jornada com essa contradição de herói martelando sua cabeça, caminhando próximo
+a um riacho para abastecer seu cantil, você encontra uma criatura meio humana meio peixe e ao
+se aproximar você nota que ela é uma sereia, e acaba sendo atraído por sua beleza e seu canto
+cuja voz beira o angelical, a sereia nota sua presença juntamente ao fato de que você está
+enfrentando um decisivo dilema e decide lhe ajudar a sanar suas preocupações, e garantiu que 
+isso iria incrementar sua experiência de vida e apaziguar suas contradições, diante de tal
+proposta você se sente um pouco receioso, o que decide fazer ?
+
+[1]Decide deixá-la ajudalo
+[2]Não confiar na suposta sereia
+
+        '''
+
+
 
 
 
