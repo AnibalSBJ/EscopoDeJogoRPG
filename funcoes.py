@@ -5,6 +5,7 @@ from itens import itens
 from ogro import ogro
 from MonstroPlanta import MonstroPlanta
 from heroi import heroi
+import time
 
 def ataque(forca):
     dano = random.random()*forca
@@ -47,4 +48,9 @@ def createMonster():
     elif chance_monstro > 9:
         novoMonstro = drag("grande","vermelho","lendário","dragão elemental",monsterLevel*100,monsterLevel*1000,monsterLevel*100)
     return novoMonstro
+
+def digitar_historia(string):
+    for ch in string:
+        time.sleep(0.03)
+        print(ch, end='', flush=True)
 

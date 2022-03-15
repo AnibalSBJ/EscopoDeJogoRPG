@@ -28,9 +28,7 @@ Escolha a classe do seu herói:
 [3]arqueiro
 
 '''
-for ch in string:
-    time.sleep(0.03)
-    print(ch, end='', flush=True)
+funcoes.digitar_historia(string)
 
 raca = NULL
 classe = NULL
@@ -54,11 +52,10 @@ os.system('clear')
 
 string = f"\n você escolheu a classe {hero.classe}"
 
-for ch in string:
-    time.sleep(0.03)
-    print(ch, end='', flush=True)
+funcoes.digitar_historia(string)
 
 string = '''
+
 Escolha agora qual a raça
 de seu herói dentre as opções a seguir:
 
@@ -68,9 +65,7 @@ de seu herói dentre as opções a seguir:
 [4]orc
 
 '''
-for ch in string:
-    time.sleep(0.03)
-    print(ch, end='', flush=True)
+funcoes.digitar_historia(string)
 
 
 opcao_raca = int(input())
@@ -88,9 +83,7 @@ elif opcao_raca == 4:
 
 string = f"\n você escolheu a classe {hero.classe} de raça {hero.raca},\n vamos iniciar sua aventura!"
 
-for ch in string:
-    time.sleep(0.03)
-    print(ch, end='', flush=True)
+funcoes.digitar_historia(string)
 
 time.sleep(3)
 
@@ -103,9 +96,7 @@ diversos monstros de elementos diferentes estão zaralhando a porra toda, e tu
 é o escolhido pra limpar a merda toda.
 '''
 
-for ch in string:
-    time.sleep(0.03)
-    print(ch, end='', flush=True)
+funcoes.digitar_historia(string)
 
 time.sleep(2)
 
@@ -120,51 +111,50 @@ ele tem uma aparência meio fraca e você com certeza pode derrotá-lo
 
 '''
 
-for ch in string:
-    time.sleep(0.03)
-    print(ch, end='', flush=True)
+funcoes.digitar_historia(string)
 
 while matou_monstro == False:
-
     string = '''
 
-    o que você decide fazer?
+o que você decide fazer?
 
-    [1]batalhar com ele
-    [2]ignorá-lo
+[1]batalhar com ele
+[2]ignorá-lo
 
     '''
 
-    for ch in string:
-        time.sleep(0.03)
-        print(ch, end='', flush=True)
+    funcoes.digitar_historia(string)
 
     opcao_batalha = int(input())
 
     monstroPlanta1 = MonstroPlanta("pequeno","verde","comum","elemental de planta","1","5",5)
 
-
+    os.system('clear')
 
     if opcao_batalha == 1:
         dano = funcoes.ataque(hero.forca)
-        vida2 = float(monstroPlanta1.vida) - dano
+        monstroPlanta1.vida = round(float(monstroPlanta1.vida)) - dano
         string = f'''
 
-        você decidiu atacar o monstro planta!
-        e causou um total de {dano} de dano
+você decidiu atacar o monstro planta!
+e causou um total de {round(dano)} de dano
         
         '''
 
-        for ch in string:
-            time.sleep(0.03)
-            print(ch, end='', flush=True)
+        funcoes.digitar_historia(string)
 
-        if vida2 <= 0:
-            print("\n você matou o monstro planta!")
+        if monstroPlanta1.vida <= 0:
+            string = "\n você matou o monstro planta!"
+            funcoes.digitar_historia(string)
             hero.level = hero.level+1
             matou_monstro = True
         else:
-            print(f"\n a vida atual do monstor planda é {math.floor(vida2)}")
+            string = f"\n a vida atual do monstor planda é {round(monstroPlanta1.vida)}"
+            funcoes.digitar_historia(string)
+            ataque = round(funcoes.ataque(monstroPlanta1.forca))
+            hero.vida = hero.vida -  ataque
+            string = f"o monstro planta lança um ataque em você causando {ataque} de dano!\n e sua vida atual agora é {hero.vida}"
+            funcoes.digitar_historia(string)
 
     elif opcao_batalha == 2:
         fuga = funcoes.fuga()
@@ -174,27 +164,34 @@ while matou_monstro == False:
         else:
             print("você tropeçou e não conseguiu fugir!")
             time.sleep(1)
-            hero.vida = math.floor(hero.vida - funcoes.ataque(monstroPlanta1.forca))
+            hero.vida = round(hero.vida - funcoes.ataque(monstroPlanta1.forca))
+            
     
-print('''
+string = '''
 
 continuando sua viagem aventureiro, gostaria de saber seus status?
 
 [1]sim
 [2]não
 
-''')
+'''
+
+funcoes.digitar_historia(string)
 
 opcao = int(input())
 
+
+os.system('clear')
+
+
 if opcao == 1:
     print(f'''
-    seu herói possui:
-    {hero.forca} de força
-    {hero.level} de level
-    {hero.vida} de vida
+seu herói possui:
+{hero.forca} de força
+{hero.level} de level
+{hero.vida} de vida
 
-    atualmente
+atualmente
     ''')
 
 time.sleep(5)
@@ -208,10 +205,7 @@ Dando continuação à sua aventura, você encontra um baú em seu caminho, dese
 [2]não
 
 '''
-
-for ch in string:
-    time.sleep(0.03)
-    print(ch, end='', flush=True)
+funcoes.digitar_historia(string)
 
 opcao = int(input())
 
@@ -226,36 +220,87 @@ if opcao == 1:
             hero.vida = hero.vida + 5
     elif chance >= 3 and chance <=6 and hero.classe == "guerreiro":
         print("você encontrou um machado grande!, que lhe garantiu um aumento significativo de poder")
+        inventario.arma = "machado grande"
         hero.forca = hero.forca + 5
     elif chance >= 3 and chance <=6 and hero.classe == "arqueiro":
         print("você encontrou um arco grande!, que lhe garantiu um aumento significativo de poder")
+        inventario.arma = "arco grande"
         hero.forca = hero.forca + 5
     elif chance >= 3 and chance <=6 and hero.classe == "mago":
         print("você encontrou um cetro grande!, que lhe garantiu um aumento significativo de poder")
+        inventario.arma = "cetro grande"
         hero.forca = hero.forca + 5
     elif chance > 6:
         print("você encontrou uma couraça demoniaca, que lhe garantiu um aumento significativo de vida")
+        inventario.vestimenta = "couraça demoníaca"
         hero.vida = hero.vida + 50
 
 time.sleep(2)
 
 print(f'''
-    Agora seu herói possui:
-    {hero.forca} de força
-    {hero.level} de level
-    {hero.vida} de vida
+Agora seu herói possui:
+{hero.forca} de força
+{hero.level} de level
+{hero.vida} de vida
 
-    atualmente
+atualmente
     ''')
 
 time.sleep(3)
 
+os.system('clear')
+
 string = '''
 
-Dando continuação à sua jornada
+ao longo de sua jornada você acaba entrando em um pequeno vilarejo, onde nele a pobreza já se tornou 
+característica, andando pelas ruas de terra deste vilare você encontra um garotinho cabisbaixo sentado na calçada
+ao ver aquela cena o que você faz ?
+
+[1]Se aproxima do garotinho para perguntar qual o problema
+[2]Ignora o garotinho e continua sua viagem
 
 '''
+
+funcoes.digitar_historia(string)
+
+opcao = int(input())
+
+os.system('clear')
+
+if opcao == 1:
+    string = '''
+
+Ao se aproximar do garotinho ele te dá uma facada e rouba seus pertences!,
+Não confie em garotinhos pobres!
     
+    ''' 
+    funcoes.digitar_historia(string)
+
+    hero.vida = hero.vida - 50
+
+    if inventario.arma != "nenhuma":
+        inventario.arma = "nenhuma"
+        hero.forca = hero.forca - 5
+    if inventario.vestimenta != "nenhuma":
+        inventario.vestimenta = "nenhuma"
+        hero.vida = hero.vida - 50
+    print(f'''
+
+Agora seu herói possui:
+{hero.forca} de força
+{hero.level} de level
+{hero.vida} de vida
+
+atualmente
+    ''')
+elif opcao == 2:
+    print('''
+    
+Você ignorou o garotinho famindo e triste, provavelmente ele morrerá
+    
+    ''')
+
+
 
 
 
