@@ -100,7 +100,7 @@ a Terra e receber glória eterna.
 
 funcoes.digitar_historia(string)
 
-time.sleep(2)
+time.sleep(5)
 
 os.system('clear')
 
@@ -185,6 +185,7 @@ funcoes.digitar_historia(string)
 
 opcao = int(input())
 
+time.sleep(3)
 
 os.system('clear')
 
@@ -240,7 +241,7 @@ if opcao == 1:
         inventario.vestimenta = "couraça demoníaca"
         hero.vida = hero.vida + 50
 
-time.sleep(2)
+time.sleep(3)
 
 print(f'''
 Agora seu herói possui:
@@ -281,6 +282,10 @@ Não confie em garotinhos pobres!
     ''' 
     funcoes.digitar_historia(string)
 
+    time.sleep(3)
+
+    os.system('clear')
+
     hero.vida = hero.vida - 50
 
     if inventario.arma != "nenhuma":
@@ -300,6 +305,10 @@ atualmente
     '''
     funcoes.digitar_historia(string)
 
+    time.sleep(3)
+
+    os.system('clear')
+
 elif opcao == 2:
     string = '''
     
@@ -308,6 +317,10 @@ mas acho que isso não importa muito pra você nobre aventureiro!
     
     '''
     funcoes.digitar_historia(string)
+
+    time.sleep(3)
+
+    os.system('clear')
 
 if opcao == 1:
 
@@ -323,7 +336,11 @@ perguntando-lhe o que está acontecendo, o que você faz ?
 
     '''
 
+    funcoes.digitar_historia(string)
+
     opcao2 = int(input())
+
+    os.system('clear')
 
     if opcao2 == 1:
 
@@ -336,6 +353,10 @@ pequenino cabisbaixo.
         '''
 
         funcoes.digitar_historia(string)
+
+        time.sleep(3)
+
+        os.system('clear')
 
         string = '''
 Por dar seu voto de confiança, e também pelos gnomos acharem que você é maluco por estar em
@@ -361,6 +382,10 @@ Seus status agora são:
         '''
 
         funcoes.digitar_historia(string)
+
+        time.sleep(4)
+
+        os.system('clear')
     
 
     elif opcao2 == 2:
@@ -371,6 +396,8 @@ Você decide ignorar os gnomos e seguir viagem.
 
 '''
         funcoes.digitar_historia(string)
+
+        time.sleep(3)
 
 elif opcao == 2:
 
@@ -385,10 +412,12 @@ enfrentando um decisivo dilema e decide lhe ajudar a sanar suas preocupações, 
 isso iria incrementar sua experiência de vida e apaziguar suas contradições, diante de tal
 proposta você se sente um pouco receioso, o que decide fazer ?
 
-[1]Decide deixá-la ajudalo
+[1]Decide deixá-la ajudar
 [2]Não confiar na suposta sereia
 
     '''
+    funcoes.digitar_historia(string)
+
     opcao2 = int(input())
 
     if opcao2 == 1:
@@ -402,6 +431,9 @@ a bênção dos mares, aumentando sua força e sabedoria em 100%, e ela decide l
 que estiveres próximo a um rio ou ao mar lhe concedendo sua vida em adição à sua jornada.
 
         '''
+        time.sleep(5)
+
+        os.system('clear')
         
         funcoes.digitar_historia(string)
 
@@ -421,6 +453,10 @@ Seus status agora são:
         '''
 
         funcoes.digitar_historia(string)
+
+        time.sleep(3)
+
+        os.system('clear')
 
     elif opcao2 == 2:
 
@@ -445,6 +481,10 @@ Seus status agora são:
         '''
 
         funcoes.digitar_historia(string)
+
+        time.sleep(4)
+
+        os.system('clear')
 
 
 
