@@ -487,6 +487,26 @@ Seus status agora são:
         os.system('clear')
 
 
+string = '''
+Após andar por mais alguns dias, você finalmente sai da floresta, e se depara com um enorme deserto cheio de grandiosas
+dunas de areia, ali você percebe que chegou no deserto de Mauruler, um antigo deserto cheio de mistérios em sua história.
+Muitas lendas dizem que antigamente esse deserto era um oásis, e era uma terra governada por uma poderosa família 
+durante gerações, até que um de seus reis decidiu mexer com a magia da vida, com a ganância de se tornar imortal,
+isso irritou a entidade divina da terra, cuja mesma lançou uma maldição de infertilidade, transformando aquela terra
+rica e fértil em um deserto que apenas florecem memórias.
+'''
+
+funcoes.digitar_historia(string)
+
+time.sleep(4)
+
+os.system('clear')
+
+string = '''
+
+'''
+
+
 
 
 
