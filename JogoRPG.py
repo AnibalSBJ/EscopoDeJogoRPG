@@ -504,7 +504,160 @@ os.system('clear')
 
 string = '''
 
+Você avista uma estrutura estranha, cheia de escrituras e com uma entrada com a seguinte mensagem : 
+"Aqui jás o grandioso rei Beonath, que viveu toda a vida de sua terra, apenas os que em vida não
+desejam nada podem entrar, pois quem deseja mais do que a vida acaba por perdê-la".
+O que você decide fazer ?
+
+[1]Entrar na possível tumba
+[2]Seguir viagem e não assumir o risco
+
+
 '''
+
+funcoes.digitar_historia(string)
+
+opcao = int(input())
+
+os.system('clear')
+
+if opcao == 1:
+    string = '''
+Você entrou na tumba do rei Beonath, tome cuidado aventureiro, pois em vida esse rei desprezou a tudo e
+a todos em prol de sua ganância, ele não terá piedade de quem tentar tirar algo dele, mesmo após sua morte.
+
+Andando dentro daquela grandiosa estrutura, você encontra uma bifurcação, e deve escolher entre seguir pela
+esquerda ou direita, porém na parede você encontra a seguinte mensagem:
+
+"aos corajosos e fortes o braço direito não lhe falha, aos bondosos e benevolentes a mão esquerda
+da cura os protege"
+
+Qual caminho você decide seguir?
+
+[1]Esquerda
+[2]Direita
+
+'''
+    funcoes.digitar_historia(string)
+
+    opcao2 = int(input())
+    
+    if opcao2 == 1:
+
+        string = '''
+Você pegou o caminho da bondade, nele você chega ao final de um corredor e encontra o segredo da vida
+o qual o rei Beonath guardou consigo até mesmo após sua morte, e você é concedido com 200 a mais de vida
+'''
+        funcoes.digitar_historia(string)
+
+        time.sleep(3)
+
+        os.system('clear')
+
+        hero.vida = hero.vida + 200
+
+        string = f'''
+        
+Seus status agora são:
+
+{hero.forca} de forca
+{hero.level} de level
+{hero.vida} de vida
+
+        '''
+
+        funcoes.digitar_historia(string)
+
+        time.sleep(3)
+
+        os.system('clear')
+
+    elif opcao2 == 2:
+
+        string = '''
+Você pegou o caminho da coragem e força, chegando ao final de um corredor você se depara com uma belíssima
+espada, tão linda que deixaria um mortal com pouca força de vontade cair pelo desejo insano em possuí-la.
+Abaixo do suporte onde se encontra a espada, você lê a seguinte mensagem:
+
+"a espada de Beonath, o encontro entre a vida e a morte, aqueles que conseguem possuí-la terão o maior poder
+já visto em seu reino, mas aqueles que não são dignos de empunhá-la não sairão daqui.
+
+Diante desta situação, o que você decide fazer ?
+
+[1]Arriscar e pegar a espada, confiando em ser digno
+[2]Ignorar a espada e não assiscar
+
+'''
+        funcoes.digitar_historia(string)
+
+        opcao3 = int(input())
+
+        if opcao3 == 1:
+
+            chance = random.random()*10
+
+            if chance >= 5:
+
+                string = '''
+Você foi testado digno nobre aventureiro, e foi capaz de empunhar a espada de Beonath, 
+garantindo-lhe o grandioso poder uma vez empunhado pelo Rei das areias.                
+'''
+                funcoes.digitar_historia(string)
+
+                hero.forca = hero.forca + 100
+
+                string = f'''
+        
+Seus status agora são:
+
+{hero.forca} de forca
+{hero.level} de level
+{hero.vida} de vida
+
+        '''
+
+                funcoes.digitar_historia(string)
+
+                time.sleep(4)
+
+                os.system('clear')
+
+            else:
+
+                string = '''
+Você não foi digno de empunhar a espada nobre aventureiro, e como punição você perdeu metade
+da sua quantidade atual de vida.
+                '''
+
+                funcoes.digitar_historia(string)
+
+                time.sleep(3)
+
+                os.system('clear')
+
+                hero.vida = hero.vida/2
+
+                string = f'''
+        
+Seus status agora são:
+
+{hero.forca} de forca
+{hero.level} de level
+{hero.vida} de vida
+
+        '''
+
+                funcoes.digitar_historia(string)
+
+                time.sleep(4)
+
+                os.system('clear')
+
+
+
+
+
+
 
 
 
