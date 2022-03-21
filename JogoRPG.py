@@ -12,14 +12,50 @@ import funcoes
 import math
 
 opcao = 0
+nome = NULL
+raca = NULL
+classe = NULL
+potion = 0
+weapon = "nenhuma"
+vest = "nenhuma"
+hero = heroi(nome,raca,classe,1,20,200)
+inventario = itens(potion,weapon,vest)
 
 os.system('clear')
 
 string = '''
+    Seja bem-vindo ao mundo de Azerim aventureiro!, aqui começa sua jornada para salvar este mundo e seus habitantes.
+A muito tempo atrás o Deus destas Terras se revoltou com a raça humana, quando o rei Joan, o Rei da cidade principal
+Nibsheim, tentou adquirir a fonte de poder eterno que controlava o equilíbrio do tempo e da realidade, Joan viajou até
+o centro do mundo, levando consigo seus mais corajosos e benevolentes soldados, com a promessa de vida, poder e felicidade
+eterna àqueles que lhe ajudassem no sucesso de sua campanha.
+    Eles lutaram batalhas épicas, e conseguiram encontrar os segredos do poder de Deus, isso o revoltou, jogando uma maldição
+no mundo de Azerim, abrindo um portal para o Lendário dragão das chamas demoníacas Jamond, Jamond então trouxe consigo sua 
+horda de monstros que estão devastando a Terra, e você foi escolhido para dettorar Jamond e restaurar o Mundo de Azerim.
+'''
 
-Bem-vindo aventureiro!, 
-escolha seu herói para lhe 
-representar em suas batalhas
+funcoes.digitar_historia(string)
+
+time.sleep(12)
+
+os.system('clear')
+
+string = '''
+    Para começar sua aventura, diga seu nome
+bravo herói:
+'''
+
+funcoes.digitar_historia(string)
+
+nome = str(input())
+
+string = f'''
+    Glória eterna ao herói {hero.nome}
+'''
+
+funcoes.digitar_historia(string)
+
+string = '''
 
 Escolha a classe do seu herói:
 
@@ -29,14 +65,6 @@ Escolha a classe do seu herói:
 
 '''
 funcoes.digitar_historia(string)
-
-raca = NULL
-classe = NULL
-potion = 0
-weapon = "nenhuma"
-vest = "nenhuma"
-hero = heroi(raca,classe,1,20,200)
-inventario = itens(potion,weapon,vest)
 
 opcao = int(input())
 
