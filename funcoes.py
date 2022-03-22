@@ -23,19 +23,11 @@ def fuga():
         return False
 
 def especial(tipo_heroi,forca):
-    if tipo_heroi == "guerreiro":
-        ataque_especial = "Machadada feroz"
-    elif tipo_heroi == "arqueiro":
-        ataque_especial = "Rajada de flechas"
-    elif tipo_heroi == "mago":
-        ataque_especial = "Bola de fogo"
-
-    print(f"você usou {ataque_especial}!")
     
     if tipo_heroi == "guerreiro" or "arqueiro":
-        dano_ataque_especial = forca*random.random()*10
+        dano_ataque_especial = forca*random.random()*100
     else:
-        dano_ataque_especial = forca*random.random()*20
+        dano_ataque_especial = forca*random.random()*200
     return dano_ataque_especial
 
 def createMonster():
@@ -53,4 +45,6 @@ def digitar_historia(string):
     for ch in string:
         time.sleep(0.03)
         print(ch, end='', flush=True)
+
+
 

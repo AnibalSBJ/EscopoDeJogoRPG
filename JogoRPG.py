@@ -49,6 +49,8 @@ funcoes.digitar_historia(string)
 
 nome = str(input())
 
+hero.nome = nome
+
 string = f'''
     Glória eterna ao herói {hero.nome}
 '''
@@ -680,6 +682,51 @@ Seus status agora são:
                 time.sleep(4)
 
                 os.system('clear')
+
+string = '''
+Ao deixar a tumba de Beoneth, um dos reis antigos de Azerim, você segue viagem rumo ao leste, 
+onde rumores sobre de Ogros ferozes estarem devastando vilarejos se espalharam, e você vai em
+busca de adquirir experiência e força para conseguir derrotar o lendário dragão Jamond.
+Andando um pouco mais adiante você avista um vilarejo cuja sobrevivência de seus moradores
+dependia de uma pequena plantação de trigo, produto usado como moeda de troca nas cidades grandes.
+Ao se aproximar da entrada do vilarejo você percebe algo estranho, está tudo calmo sem sombra de 
+vida em qualquer lugar ali perto.
+'''
+
+funcoes.digitar_historia(string)
+
+time.sleep(10)
+
+os.system('clear')
+
+if hero.classe == "guerreiro":
+        ataque_especial = "Machadada feroz"
+elif hero.classe == "arqueiro":
+        ataque_especial = "Rajada de flechas"
+elif hero.classe == "mago":
+        ataque_especial = "Bola de fogo"
+
+
+dano_ataque_especial = funcoes.especial(hero.classe,hero.forca)
+
+
+string = f'''
+Curioso , você vasculha ao redor para entender o que aconteceu àquele vilarejo, e de repente se depara
+com a cena mais assustadora e enojadora possível, você encontra um grupo de ogros dilacerando a carne de
+um dos que era possívelmente um morador do vilarejo, você sente o cheiro da carne apodrecendo de outros
+corpos deixados por ali mesmo no relento, juntamente ao cheiro de ferro emanado pelo corpo ainda fresco
+sendo rasgado ao meio por aquelas ferozes criaturas.
+Diante de tanto horror, você se vê em um ódio tremendo, com desejo de matar todas aquelas criaturas em
+sua frente, essa raiva lhe faz despertar um poder especial, você acaba de aprender a usar: {ataque_especial}
+causando um total de {dano_ataque_especial} em um dos Ogros, derrotando-o instantaneamente, e fazendo os 
+demais correrem de medo.
+'''
+
+funcoes.digitar_historia(string)
+
+time.sleep(10)
+
+os.system('clear')
 
 
 
