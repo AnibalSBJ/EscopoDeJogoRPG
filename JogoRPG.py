@@ -20,6 +20,7 @@ weapon = "nenhuma"
 vest = "nenhuma"
 hero = heroi(nome,raca,classe,1,20,200)
 inventario = itens(potion,weapon,vest)
+pocoes = ["poção de vida","poção de nível","poção de forca"]
 
 os.system('clear')
 
@@ -727,6 +728,10 @@ funcoes.digitar_historia(string)
 time.sleep(10)
 
 os.system('clear')
+
+
+
+
 
 
 
