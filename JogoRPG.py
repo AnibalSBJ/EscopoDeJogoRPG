@@ -756,6 +756,19 @@ time.sleep(8)
 
 os.system('clear')
 
+string = '''
+depois de todo esse esforço você se vê capaz de derrotar Jamond, você então segue às terras de Jirrad, 
+ninho do dragão, cujo mesmo se encontra no topo de um vulcão ativo.
+Você segue em sua jornada com a esperança de sua terra em seus ombros, chegando em Jirrad, você logo
+percebe a destruição causada por Jamond, antigas cidades transformadas em cinzas e monumentos históricos
+destruídos, você se aproxima do pico da montanha, e encontra Jamond.
+'''
+
+funcoes.digitar_historia(string)
+
+time.sleep(8)
+
+os.system('clear')
 
 
 
