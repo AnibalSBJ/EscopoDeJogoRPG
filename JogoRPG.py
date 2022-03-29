@@ -729,6 +729,36 @@ time.sleep(10)
 
 os.system('clear')
 
+string = '''
+Você então ja está afrente de sua jornada, enfim encontrando a realidade e vivenciando a realidade
+em enfrentar monstros grandes, você batalhou contra diversos ogros em seu caminho, incrementando sua força e 
+nível exponencialmente.
+'''
+
+funcoes.digitar_historia(string)
+
+hero.forca = hero.forca*100
+hero.vida = hero.vida*100
+hero.level = hero.level*100
+
+string = f'''
+seus status agora são:
+
+{hero.forca} de forca
+{hero.level} de level
+{hero.vida} de vida
+
+'''
+
+funcoes.digitar_historia(string)
+
+time.sleep(8)
+
+os.system('clear')
+
+
+
+
 
 
 
