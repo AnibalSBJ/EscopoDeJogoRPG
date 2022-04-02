@@ -770,6 +770,28 @@ time.sleep(8)
 
 os.system('clear')
 
+Jamond = drag("grande","vermelho","lendário","dragão elemental",1000,100,1000)
+
+string = '''
+Você se depara com aquela criatura monstruosa, seus ossos tremem, e você fica indeciso, do que deve fazer,
+diante de você aparecem 2 escolhas, preservar sua vida, ou arriscar derrotar o lendário dragão.
+
+o que você faz ?
+
+[1]Decide enfrentar o lendário dragão
+[2]Decide fugir e viver uma vida sem glória
+[3]Deseja ver seus status
+[4]Deseja ver o status do dragão lendário
+
+'''
+
+funcoes.digitar_historia(string)
+
+opcao = int(input())
+
+if opcao == 1:
+    
+
 
 
 
