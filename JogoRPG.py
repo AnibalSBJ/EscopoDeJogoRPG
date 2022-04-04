@@ -790,6 +790,73 @@ funcoes.digitar_historia(string)
 opcao = int(input())
 
 if opcao == 1:
+    matou_ou_morreu = False
+    while matou_ou_morreu == False:
+
+        string = '''
+o que você decide fazer ?
+
+[1]Atacar Jamond
+[2]Tentar fugir
+'''
+        funcoes.digitar_historia(string)
+
+        opcao2 = int(input())
+
+        if opcao2 == 1:
+            dano = funcoes.ataque(hero.forca)
+            Jamond.vida = round(float(Jamond.vida)) - dano
+            if Jamond.vida < 0 :
+                Jamond.vida = 0
+            string = f'''
+Você atacou Jamond, e causou um total de {dano} de dano em sua vida, agora ele possui
+um total de {Jamond.vida} de vida restante            
+            '''
+            funcoes.digitar_historia(string)
+            if Jamond.vida >= 0:
+                dano2 = funcoes.ataque(Jamond.forca)
+                hero.vida = round(float(hero.vida)) - dano2
+                if hero.vida < 0:
+                    hero.vida = 0
+                    string = '''
+Você morreu aventureiro, mais sorte da próxima vez.                    
+'''     
+                    funcoes.digitar_historia(string)
+                    time.sleep(8)
+                    exit()
+                string = f'''
+Jamond atacou você, causando um total de {dano2} de dano em sua vida!,
+agora você possui um total de {hero.vida} de vida restante.
+'''
+                funcoes.digitar_historia(string)
+                time.sleep(5)
+            
+            elif Jamond.vida < 0:
+                Jamond.vida = 0
+                string = '''
+Você matou jamond!!, parabéns guerreiro, você conquistou a glória eterna
+'''
+                time.sleep(5)
+                matou_ou_morreu = True
+
+        else:
+            fuga = funcoes.fuga()
+            if fuga == True:
+                string = '''
+Você fugiu, e decidiu viver uma vida vergonhosa, onde sua identidade se tornou amaldiçoada
+e o fim do mundo se aproxima                
+'''
+                funcoes.digitar_historia(string)
+                time.sleep(8)
+                exit()
+            else:
+                string = '''
+Você não conseguiu fugir, pois Jamond não deixa suas presas escaparem!                
+'''
+                funcoes.digitar_historia(string)
+                time.sleep(8)
+
+
     
 
 
