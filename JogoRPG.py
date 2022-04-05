@@ -856,6 +856,16 @@ Você não conseguiu fugir, pois Jamond não deixa suas presas escaparem!
                 funcoes.digitar_historia(string)
                 time.sleep(8)
 
+string = '''
+Enfim sua jornada chega ao fim guerreiro, você conquistou a glória eterna em Azerim, 
+o Rei Joan lhe concede o Título de libertador de Azerim, e Dragonslayer, como o matador
+do lendário Dragão Jamond, enfim guerreiro, aproveite sua glória, e tenha uma boa vida.
+'''
+
+funcoes.digitar_historia(string)
+
+time.sleep(10)
+
 
     
 
